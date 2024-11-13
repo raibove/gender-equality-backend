@@ -13,12 +13,13 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export default {
   async fetch(request, env) {
-	const corsHeaders =  {
-		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Methods': 'POST, OPTIONS',
-		'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-	  }
-
+	const corsHeaders = {
+		"Access-Control-Allow-Origin": `*`,
+		"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+		"Access-Control-Max-Age": "86400",
+		"Access-Control-Allow-Headers": "Content-Type"
+	  };
+	  
 	if (request.method === "OPTIONS") {
 
 		return new Response(null, {
