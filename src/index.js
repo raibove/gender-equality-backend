@@ -39,7 +39,7 @@ export default {
 		const apiKey = env.GEMINI_API;
 	
 		// Extract the necessary data from the request body
-		const { inputPrompt } = body;
+		const { inputPrompt, history } = body;
 	
 		// Initialize the Google Generative AI client
 		const genAI = new GoogleGenerativeAI(apiKey);
@@ -60,7 +60,7 @@ export default {
 		};
 	
 		// Start a new chat session and send the message
-		const chatSession = model.startChat({ generationConfig, history: [] });
+		const chatSession = model.startChat({ generationConfig, history });
 		const result = await chatSession.sendMessage(inputPrompt);
 	
 		// Return the response
